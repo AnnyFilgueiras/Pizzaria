@@ -10,7 +10,7 @@ public class Pedido{
     Pedido(int id){
         this.id = id;
         this.valorTotal = 0;
-        this.produtos = new ArrayList();
+        this.produtos = new ArrayList<Produto>();
     }
 
     public float calcularValorTotal(int quantP, Produto produto){
