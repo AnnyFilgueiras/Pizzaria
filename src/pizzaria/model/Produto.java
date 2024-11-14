@@ -12,4 +12,8 @@ public class Produto {
         this.preco = preco;
     }
 
+    public float getPreco(){
+        return this.preco;
+    }
+
 }

@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package pizzaria.model;
 
-/**
- *
- * @author annyk
- */
+package pizzaria.model;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Compra {
-    
+
+    private int id;
+    private Date data;
+    private float valorTotal;
+    private ArrayList<Simples> simples;
+    private ArrayList<Ingrediente> ingredientes;
+
+    Compra(int id, Date data){
+
+        this.id = id;
+        this.data = data;
+        this.simples = new ArrayList<Simples>();
+        this.ingredientes = new ArrayList<Ingrediente>();
+
+    }
+
+    public float calcularValorTotal(int quant){
+
+        // Falta implementar
+
+        return 0;
+
+    }
 }

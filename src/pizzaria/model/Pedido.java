@@ -14,6 +14,14 @@ public class Pedido{
     }
 
     public float calcularValorTotal(int quantP, Produto produto){
-        return 0;
+
+        // Falta terminar, e compreender onde colocar o quantP
+
+        for (Produto p : produtos)
+            this.valorTotal += p.getPreco();
+
+        return this.valorTotal; 
+
+
+        }
     }
-} 
