@@ -1,4 +1,4 @@
-package pizzaria.MODEL;
+package pizzaria.model;
 
 public class Fornecedor {   
     private String nome, cnpj;

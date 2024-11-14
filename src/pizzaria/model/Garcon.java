@@ -4,9 +4,9 @@ public class Garcon extends Funcionario{
 
     private int quantMesas;
 
-    public Garcon(int quantMesas, String nome, int id, float salario) {
+    public Garcon(String nome, int id, float salario) {
         super(nome, id, salario);
-        this.quantMesas = quantMesas;
+        this.quantMesas = 0;
     }
     
     @Override
