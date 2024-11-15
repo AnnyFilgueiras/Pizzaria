@@ -1,5 +1,4 @@
 package pizzaria.model;
-import java.util.Date;
 
 public class Ingrediente {
 
@@ -9,11 +8,11 @@ public class Ingrediente {
     private String dataValidade;
     private  int quantEstoque;
 
-    Ingrediente(int id, String nome, float precoCompra, String dataValidade, int quantEstoque){
+    Ingrediente(int id, String nome, float precoCompra, String dataValidade){
         this.id = id;
         this.precoCompra = precoCompra;
         this.dataValidade = dataValidade;
-        this.quantEstoque = quantEstoque;
+        this.quantEstoque = 0;
     }
 
 

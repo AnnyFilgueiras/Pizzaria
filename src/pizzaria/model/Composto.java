@@ -2,24 +2,34 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class Composto extends Produto{
-    private ArrayList<Ingrediente> ingredientes;
+    private ArrayList<Ingrediente> ingredientesUsados;
 
-    Composto(int id, String nome, float preco, ArrayList<Ingrediente> ingredientes){
-        super(id, nome, preco);
-        this.ingredientes = ingredientes;
+    Composto(int id, String nome){
+        super(id, nome);
+        this.ingredientesUsados = new ArrayList<Ingrediente>();
     }
 
-    public float calcularPreco(ArrayList<Ingrediente> ingredientes){
+    public float setEcalcularPreco(){
 
         float precos = 0;
 
-        for (Ingrediente p : ingredientes){
+        for (Ingrediente p : this.ingredientesUsados){
             precos += p.getPrecoCompra();
         }
 
         float valorTotal = precos + (precos * (float)0.6);
 
+        this.precoVenda = valorTotal;
+        
         return valorTotal;
         
+    }
+
+    public void setPrecoVenda(float preco){
+        this.precoVenda = preco;
+    }
+
+    public void adicionarIngredientes(Ingrediente ingrediente){ //VAI PRA CONTROLLER?????????????????
+        this.ingredientesUsados.add(ingrediente);
     }
 }

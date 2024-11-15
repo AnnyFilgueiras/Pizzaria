@@ -1,20 +1,18 @@
 package pizzaria.model;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 public class Compra {
 
     private int id;
-    private Date data;
+    private String data;
     private float valorTotal;
-    private HashMap<Simples, Integer> listaSimples;
+    private HashMap<Produto, Integer> listaSimples;
     private HashMap<Ingrediente, Integer> listaIngredientes;
     private Fornecedor fornecedor;
-    private Gerente gerente;
+    private Funcionario gerente;
 
-    Compra(int id, Date data, Fornecedor fornecedor, Gerente gerente){
+    Compra(int id, String data, Fornecedor fornecedor, Funcionario gerente){
 
         this.id = id;
         this.data = data;
@@ -24,11 +22,27 @@ public class Compra {
         this.gerente = gerente;
     }
 
-    public float calcularValorTotal(HashMap<Simples, Integer> listasimples, HashMap<Ingrediente, Integer> listaIngredientes){
+    public float calcularValorTotal(){
+        
+        for(Produto p : this.listaSimples.keySet()){
+            int quant = this.listaSimples.get(p);
+            this.valorTotal += ((Simples)p).getPrecoCompra() * quant;
+        }
 
-        // Falta implementar
+        for(Ingrediente p : this.listaIngredientes.keySet()){
+            int quant = this.listaIngredientes.get(p);
+            this.valorTotal += p.getPrecoCompra() * quant;
+        }
 
-        return 0;
+        return this.valorTotal;
 
+    }
+
+    public void adicionarEmCompraIngrediente(Ingrediente ingrediente, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
+        this.listaIngredientes.put(ingrediente, quant);
+    }
+
+    public void adicionarEmCompraSimples(Produto simples, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
+        this.listaSimples.put(simples, quant);
     }
 }

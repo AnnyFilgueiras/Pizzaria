@@ -21,7 +21,7 @@ public class Pedido{
     public float calcularValorTotal(){
         for(Produto p : this.produtos.keySet()){
             int quant = this.produtos.get(p);
-            this.valorTotal += p.getPreco() * quant;
+            this.valorTotal += p.getPrecoVenda() * quant;
         }
         return this.valorTotal;
         }

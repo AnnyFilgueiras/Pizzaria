@@ -4,16 +4,16 @@ public class Produto {
 
     private int id;
     private String nome;
-    private float preco;
+    protected float precoVenda;
 
-    Produto(int id, String nome, float preco){ //tirar do construtor e fazer o calculo do simples e composto
+    Produto(int id, String nome){ //tirar do construtor e fazer o calculo do simples e composto
         this.id = id;
         this.nome = nome;
-        this.preco = preco;
+        this.precoVenda = 0;
     }
 
-    public float getPreco(){
-        return this.preco;
+    public float getPrecoVenda(){
+        return this.precoVenda;
     }
 
     public int getId(){
