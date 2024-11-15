@@ -2,7 +2,7 @@ package pizzaria.model;
 
 public class Gerente extends Funcionario{
     
-    public Gerente(String nome, float salario, int id){
+    public Gerente(String nome, int id, float salario){
         super(nome, id, salario);
         this.quantHE = 0;
         this.salarioFinal = salario;

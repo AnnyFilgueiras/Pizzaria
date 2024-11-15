@@ -7,4 +7,9 @@ public class Fornecedor {
         this.nome = nome;
         this.cnpj = cnpj;
     }
+
+    public String getCnpj(){
+        return this.cnpj;
+    
+    }
 }

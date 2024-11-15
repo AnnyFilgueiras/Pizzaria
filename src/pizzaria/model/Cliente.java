@@ -7,4 +7,8 @@ public class Cliente {
         this.nome = nome;
         this.cpf = cpf;
     }
+
+    public String getCpf() {
+        return cpf;
+    }
 }    

@@ -7,7 +7,7 @@ public class Pedido{
     
     private int id;
     private float valorTotal;
-    private HashMap<Produto, Integer> produtos;
+    protected HashMap<Produto, Integer> produtos;
     private Cliente cliente;
     private Funcionario garcon;
 
@@ -22,7 +22,7 @@ public class Pedido{
     public float calcularValorTotal(){
         for(Produto p : this.produtos.keySet()){
             int quant = this.produtos.get(p);
-            this.valorTotal += p.getPreco() * quant;
+            this.valorTotal += p.getPrecoVenda() * quant;
         }
         return this.valorTotal;
         }
@@ -34,4 +34,13 @@ public class Pedido{
     public void adicionarEmProdutos (Produto p, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
         this.produtos.put(p, quant);
     }
+
+    public int getId(){
+        return this.id;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+    
 }

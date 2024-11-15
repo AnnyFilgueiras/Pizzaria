@@ -1,26 +1,16 @@
 package pizzaria.model;
 
-import java.util.Date;
-
 public class Simples extends Produto{
     private float precoCompra;
-    private String dataValidade;
     private int quantEstoque;
 
-    public Simples(String nome, int id, float preco, float precoCompra, String dataValidade){
-        super(id, nome, preco);
+    public Simples(String nome, int id, float precoCompra){
+        super(id, nome);
         this.precoCompra = precoCompra;
-        this.dataValidade = dataValidade;
         this.quantEstoque = 0;
+        this.precoVenda = (float)(precoCompra*1.5);
     }
     
-    public float calcularPreco (float precoCompra){
-        float precoVenda;
-        
-        precoVenda = (float) (precoCompra+precoCompra*0.5);
-        
-        return precoVenda;
-    }
 
     public int getQuantEstoque() {
         return quantEstoque;
@@ -28,5 +18,13 @@ public class Simples extends Produto{
 
     public void setQuantEstoque(int quantEstoque) {
         this.quantEstoque = quantEstoque;
+    }
+
+    public float getPrecoCompra(){
+        return this.precoCompra;
+    }
+
+    public void setPrecoVenda(float preco){
+        this.precoVenda = preco;
     }
 }

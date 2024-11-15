@@ -1,6 +1,7 @@
 package pizzaria.controller;
 
-import java.util.ArrayList;
+
+import java.util.HashMap;
 import pizzaria.model.Produto;
 
 public interface IControllerProduto {
@@ -9,5 +10,5 @@ public interface IControllerProduto {
     
     public void removerProduto (int id);
     
-    public ArrayList<Produto> obterProduto ();
+    public Produto obterProduto (int id);
 }

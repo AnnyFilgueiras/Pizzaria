@@ -1,8 +1,11 @@
 package pizzaria.model;
 
+import java.util.ArrayList;
+
 public class Garcon extends Funcionario{
 
     private int quantMesas;
+    public ArrayList<Pedido> listaPedidos;
 
     public Garcon(String nome, int id, float salario) {
         super(nome, id, salario);
@@ -17,5 +20,9 @@ public class Garcon extends Funcionario{
 
     public void setQuantMesas(int quantMesas) {
         this.quantMesas = quantMesas;
+    }
+
+    public ArrayList<Pedido> getListaPedidos(){
+        return this.listaPedidos;
     }
 }

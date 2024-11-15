@@ -20,4 +20,8 @@ public abstract class Funcionario{
     public void setQuantHE(int quantHE) {
         this.quantHE = quantHE;
     }
+
+    public int getId() {
+        return id;
+    }
 }
