@@ -1,5 +1,4 @@
 package pizzaria.model;
-import java.util.Date;
 
 public class Ingrediente {
 

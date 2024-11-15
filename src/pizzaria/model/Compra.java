@@ -1,20 +1,19 @@
 package pizzaria.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 
 public class Compra {
 
     private int id;
-    private Date data;
+    private String data;
     private float valorTotal;
     private HashMap<Simples, Integer> listaSimples;
     private HashMap<Ingrediente, Integer> listaIngredientes;
     private Fornecedor fornecedor;
     private Gerente gerente;
 
-    Compra(int id, Date data, Fornecedor fornecedor, Gerente gerente){
+    Compra(int id, String data, Fornecedor fornecedor, Gerente gerente){
 
         this.id = id;
         this.data = data;

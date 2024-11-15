@@ -1,3 +1,4 @@
+
 package pizzaria.model;
 
 import java.util.HashMap;
@@ -34,5 +35,3 @@ public class Pedido{
         this.produtos.put(p, quant);
     }
 }
-
-
