@@ -4,7 +4,18 @@ import java.util.ArrayList;
 
 
 public class GerenteRep {
-    private ArrayList<Gerente> gerentes = new ArrayList<>();
+    private ArrayList<Gerente> gerentes;
+    private static GerenteRep gerenteRep;
+
+    private GerenteRep(){
+        this.gerentes = new ArrayList<>();
+    }
+
+    public static GerenteRep getInstance(){
+        if(gerenteRep == null)
+            gerenteRep = new GerenteRep();
+        return gerenteRep;
+    }
     
     public void adicionarGerente (Gerente gerente){
         boolean rem = false;

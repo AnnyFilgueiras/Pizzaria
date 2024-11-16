@@ -6,13 +6,14 @@ import java.util.HashMap;
 public class Pedido{
     
     private int id;
+    private static int contador = 0;
     private float valorTotal;
     protected HashMap<Produto, Integer> produtos;
     private Cliente cliente;
     private Funcionario garcon;
 
-    Pedido(int id, Cliente cliente, Funcionario garcon){
-        this.id = id;
+    public Pedido(Cliente cliente, Funcionario garcon){
+        this.id = ++contador;
         this.valorTotal = 0;
         this.produtos = new HashMap<Produto, Integer>();
         this.cliente = cliente;

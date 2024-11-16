@@ -3,7 +3,18 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class CompostoRep {
-    private ArrayList<Produto> compostos = new ArrayList<>();
+    private ArrayList<Produto> compostos;
+    private static CompostoRep compostoRep;
+
+    private CompostoRep(){
+        this.compostos = new ArrayList<>();
+    }
+
+    public static CompostoRep getInstance(){
+        if(compostoRep == null)
+            compostoRep = new CompostoRep();
+        return compostoRep;
+    }
 
     public void adicionarComposto(Composto composto){
         boolean rem = false;

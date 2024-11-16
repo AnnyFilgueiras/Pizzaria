@@ -3,7 +3,18 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class ClienteRep {
-    private ArrayList<Cliente> clientes = new ArrayList<>();
+    private ArrayList<Cliente> clientes;
+    private static ClienteRep clienteRep;
+
+    private ClienteRep(){
+        this.clientes = new ArrayList<>();
+    }
+    
+    public static ClienteRep getInstance(){
+        if(clienteRep == null)
+            clienteRep = new ClienteRep();
+        return clienteRep;
+    }
     
     public void adicionarCliente (Cliente cliente){
         boolean rem = false;

@@ -3,7 +3,17 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class CozinheiroRep {
-    private ArrayList<Cozinheiro> cozinheiros = new ArrayList<>();
+    private ArrayList<Cozinheiro> cozinheiros;
+    private static CozinheiroRep cozinheiroRep;
+
+    private CozinheiroRep(){
+        this.cozinheiros = new ArrayList<>();
+    }
+    public static CozinheiroRep getInstance(){
+        if(cozinheiroRep == null)
+            cozinheiroRep = new CozinheiroRep();
+        return cozinheiroRep;
+    }
     
     public void adicionarCozinheiro (Cozinheiro cozinheiro){
         boolean rem = false;

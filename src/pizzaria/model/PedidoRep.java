@@ -4,8 +4,19 @@ import java.util.ArrayList;
 
 public class PedidoRep {
   
- private ArrayList<Pedido> pedidos = new ArrayList<>();
-    
+ private ArrayList<Pedido> pedidos;
+ private static PedidoRep pedidoRep;
+
+ private PedidoRep(){
+    this.pedidos = new ArrayList<>();
+ }   
+
+ public static PedidoRep getInstance(){
+    if(pedidoRep == null)
+        pedidoRep = new PedidoRep();
+    return pedidoRep;
+ }
+
     public void adicionarPedido (Pedido pedido){
         boolean rem = false;
         
@@ -44,5 +55,15 @@ public class PedidoRep {
     
     public  ArrayList<Pedido> listarPedidos(){
         return this.pedidos;
+    }
+
+    public Pedido buscarPedido(int id){
+         for (Pedido p : pedidos) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        System.out.println("Pedido não encontrado");
+        return null;
     }
 }

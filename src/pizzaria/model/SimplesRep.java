@@ -3,9 +3,21 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class SimplesRep {
-    private ArrayList<Produto> simples = new ArrayList<>();
+    private ArrayList<Produto> simples;
+    private static SimplesRep simplesRep;
 
-    public void adicionarSimples(Simples pSimples){
+    private SimplesRep(){
+        this.simples = new ArrayList<>();
+    }
+    
+    
+    public static SimplesRep getInstance(){
+        if(simplesRep == null){
+            simplesRep = new SimplesRep();
+        }
+        return simplesRep;
+    }
+    public void adicionarOuAtualizarSimples(Simples pSimples){
         boolean rem = false;
         for (Produto s : simples){
             if (s.getId() == pSimples.getId()){

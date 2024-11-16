@@ -3,7 +3,18 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class IngredienteRep {
-    private ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+    private ArrayList<Ingrediente> ingredientes;
+    private static IngredienteRep ingredienteRep;
+
+    private IngredienteRep(){
+        this.ingredientes = new ArrayList<>();
+    }
+
+    public static IngredienteRep getInstance(){
+        if(ingredienteRep == null)
+            ingredienteRep = new IngredienteRep();
+        return ingredienteRep;
+    } 
 
     public void adicionarIngrediente(Ingrediente ingrediente){
         this.ingredientes.add(ingrediente);

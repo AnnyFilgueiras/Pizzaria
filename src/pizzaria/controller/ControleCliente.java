@@ -5,7 +5,7 @@ import pizzaria.model.ClienteRep;
 
 public class ControleCliente implements IControllerCliente{
 
-    private ClienteRep clientes = new ClienteRep();
+    private ClienteRep clientes = ClienteRep.getInstance();
 
     @Override
     public void adicionarOuAtualizarCliente(Cliente cliente) {

@@ -3,7 +3,18 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class PagamentoRep {
-     private ArrayList<Pagamento> pagamentos = new ArrayList<>();
+     private ArrayList<Pagamento> pagamentos;
+     private static PagamentoRep pagamentoRep;
+
+     private PagamentoRep(){
+        this.pagamentos = new ArrayList<>();
+     }
+
+     public static PagamentoRep getInstance(){
+        if(pagamentoRep == null)
+            pagamentoRep = new PagamentoRep();
+        return pagamentoRep;
+     }
     
     public void adicionarPagamento(Pagamento pagamento){
         boolean rem = false;

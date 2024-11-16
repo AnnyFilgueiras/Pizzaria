@@ -3,7 +3,18 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class CaixaRep {
-    private ArrayList<Caixa> caixas = new ArrayList<>();
+    private ArrayList<Caixa> caixas;
+    private static CaixaRep caixaRep;
+
+    private CaixaRep(){
+        this.caixas = new ArrayList<>();
+    }
+    
+    public static CaixaRep getInstance(){
+        if(caixaRep == null)
+            caixaRep = new CaixaRep();
+        return caixaRep;
+    }
     
     public void adicionarCaixa (Caixa caixa){
         boolean rem = false;

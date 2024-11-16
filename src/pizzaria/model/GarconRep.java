@@ -3,8 +3,19 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 public class GarconRep {
-    private ArrayList<Garcon> garcons = new ArrayList<>();
-    
+    private ArrayList<Garcon> garcons;
+    private static GarconRep garconRep;
+
+    private GarconRep(){
+        this.garcons = new ArrayList<>();
+    }
+
+    public static GarconRep getInstance(){
+        if(garconRep == null)
+            garconRep = new GarconRep();
+        return garconRep;
+    }
+
     public void adicionarGarcon (Garcon garcon){
         boolean rem = false;
         

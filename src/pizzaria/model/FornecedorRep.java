@@ -4,7 +4,18 @@ import java.util.ArrayList;
 
 public class FornecedorRep {
 
-    private ArrayList<Fornecedor> fornecedores = new ArrayList<>();
+    private ArrayList<Fornecedor> fornecedores;
+    private static FornecedorRep fornecedorRep;
+
+    private FornecedorRep(){
+        this.fornecedores = new ArrayList<>();
+    }
+
+    public static FornecedorRep getInstance(){
+        if(fornecedorRep == null)
+            fornecedorRep = new FornecedorRep();
+        return fornecedorRep;
+    }
 
     public void adicionarFornecedor(Fornecedor fornecedor){
         boolean rem = false;

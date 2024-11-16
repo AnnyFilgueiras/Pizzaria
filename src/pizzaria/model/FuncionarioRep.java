@@ -3,10 +3,20 @@ package pizzaria.model;
 import java.util.ArrayList;
 
 
-public abstract class FuncionarioRep{
+public class FuncionarioRep{
 
-    private ArrayList<Funcionario> funcionarios = new ArrayList<>();
+    private ArrayList<Funcionario> funcionarios;
+    private static FuncionarioRep funcionarioRep;
 
+    private FuncionarioRep(){
+        this.funcionarios = new ArrayList<>();
+    }
+
+    public static FuncionarioRep getInstance(){
+        if(funcionarioRep == null)
+            funcionarioRep = new FuncionarioRep();
+        return funcionarioRep;
+    }
         public void adicionarFuncionario(Funcionario funcionario){
         boolean rem = false;
 

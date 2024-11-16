@@ -8,7 +8,7 @@ import pizzaria.model.CaixaRep;
 
 public class ControleCaixa implements IControllerFuncionario{
 
-    private CaixaRep caixas = new CaixaRep();
+    private CaixaRep caixas = CaixaRep.getInstance();
     Scanner ler = new Scanner (System.in);
 
     public boolean confirmaPagamento(Pagamento pagamento){

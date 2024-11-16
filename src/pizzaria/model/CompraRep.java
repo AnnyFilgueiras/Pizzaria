@@ -4,7 +4,18 @@ import java.util.ArrayList;
 
 public class CompraRep {
 
-    private ArrayList<Compra> compras = new ArrayList<>();
+    private ArrayList<Compra> compras;
+    private static CompraRep compraRep;
+
+    private CompraRep(){
+        this.compras = new ArrayList<>();
+    }
+
+    public static CompraRep getInstance(){
+        if(compraRep == null)
+            compraRep = new CompraRep();
+        return compraRep;
+    }
 
     public void adicionarCompra(Compra compra){
         boolean rem = false;
