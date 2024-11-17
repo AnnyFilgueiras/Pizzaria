@@ -2,6 +2,7 @@
 package pizzaria.model;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Pedido{
     
@@ -43,4 +44,20 @@ public class Pedido{
     public Funcionario getGarcon(){
         return this.garcon;
     }
+
+    @Override
+    public String toString(){
+
+        ArrayList<Integer> ids = new ArrayList<>();
+
+        for (Produto p : this.produtos.keySet()){
+            int id = p.getId();
+            ids.add(id);
+        }
+        String valor = "Pedido: " + this.id + "\n" +  "Cliente: " + this.cliente.getNome() + "\n" + this.garcon.getNome() + "\n" + "Valor: " + this.calcularValorTotal();
+        
+        return valor;
+    }
+
+    
 }

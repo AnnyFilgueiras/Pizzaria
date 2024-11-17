@@ -34,6 +34,7 @@ public class ControleComposto implements IControllerComposto{
             if(op == 'n' || op == 'N'){
                 break;
             }
+            
         }
         this.compostos.adicionarComposto(composto);
     }

@@ -4,6 +4,7 @@ import pizzaria.controller.IControllerGeral;
 import pizzaria.model.*;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 //tem atualização de quant HE e das extras de garçon e caixa?
 public class ExibirTelas{
 
@@ -82,7 +83,9 @@ public class ExibirTelas{
 
             switch (opcao) {
                 case 1 -> System.out.println("implementar");
-                case 2 -> System.out.println("implementar");
+                case 2 -> {
+                    
+                }
                 case 3 -> System.out.println("implementar");
                 case 4 -> System.out.println("implementar");
                 case 5 -> System.out.println("implementar");
@@ -206,9 +209,8 @@ public class ExibirTelas{
         do {
             System.out.println("===== Tela de Pedidos =====");
             System.out.println("1. Adicionar/Atualizar pedido");
-            System.out.println("2. Remover pedido");
+            System.out.println("2. Cancelar pedido");
             System.out.println("3. Remover produto do pedido");
-            System.out.println("4. Cancelar pedido");
             System.out.println("0. Voltar");
             System.out.print("Escolha uma opção: ");
             System.out.println("===========================");
@@ -216,48 +218,42 @@ public class ExibirTelas{
 
             switch (opcao) {
                 case 1 -> {
-                    System.out.println("Qual o ID do garçon a fazer o pedido: ");
+                    System.out.println("Digite o ID do garçon a fazer o pedido: ");
                     int id = input.nextInt();
                     Funcionario garcon = controller.obterFuncionario(id, "garcon"); // deu type mismatch; é assim mesmo isso aq?
 
-                    System.out.println("Qual o CPF do cliente: ");
+                    System.out.println("Digite o CPF do cliente: ");
                     String cpf = input.nextLine();
                     Cliente cliente = controller.obterCliente(cpf);
 
-                    controller.anotarOuAtualizarPedido(garcon, cliente);
-
+                    controller.anotarPedido(garcon, cliente);
+                    System.out.println("Pedido adicionado!");
                 }
-                case 2 -> System.out.println("Removendo pedido (em desenvolvimento)");
-                case 3 -> System.out.println("Removendo produto do pedido (em desenvolvimento)");
-                case 4 -> System.out.println("Cancelando pedido (em desenvolvimento)");
+                case 2 -> {
+                    System.out.println("Digite o ID do pedido a ser cancelado: ");
+                    int id = input.nextInt();
+
+                    controller.cancelarPedido(id);
+                    System.out.println("Pedido cancelado!");
+                }
+                case 3 -> {
+                    System.out.println("Digite o ID do pedido: ");
+                    int idPedido = input.nextInt();
+                    System.out.println("Digite o ID do produto: ");
+                    int idProduto = input.nextInt();
+                    System.out.println("Digite a quantidade a ser removida: ");
+                    int quant = input.nextInt();
+
+                    Pedido pedido = controller.getPedidos().buscarPedido(idPedido);
+
+                    controller.removerProduto(idProduto, pedido, quant);   
+                }
                 case 0 -> System.out.println("Voltando ao Menu Principal...");
                 default -> System.out.println("Opção inválida! Tente novamente.");
             }
         } while (opcao != 0);
     }
 
-    public void telaListagem() {
-        int opcao;
-
-        do {
-            System.out.println("===== Tela de Listagem =====");
-            System.out.println("1. Funcionários");
-            System.out.println("2. Produtos");
-            System.out.println("3. Histórico");
-            System.out.println("0. Voltar");
-            System.out.print("Escolha uma opção: ");
-            opcao = input.nextInt();
-
-            switch (opcao) {
-                case 1 -> System.out.println("Listagem dos Fornecedores (em desenvolvimento)");
-                case 2 -> System.out.println("Listagem dos Produtos (em desenvolvimento)");
-                case 3 -> System.out.println("Histórico (em desenvolvimento)");
-                case 0 -> System.out.println("Voltando ao Menu Principal...");
-                default -> System.out.println("Opção inválida! Tente novamente.");
-            }
-        } while (opcao != 0);
-       
-    }
 /*
    public static void main(String[] args) {
 

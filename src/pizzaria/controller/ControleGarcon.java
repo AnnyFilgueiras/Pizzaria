@@ -20,12 +20,11 @@ public class ControleGarcon implements IControllerGarcon{
     private CompostoRep composto = CompostoRep.getInstance();
     Scanner input = new Scanner(System.in);
     
-    public void anotarOuAtualizarPedido(Funcionario garcon, Cliente cliente){
+    public void anotarPedido(Funcionario garcon, Cliente cliente){
         System.out.println("Qual o ID do pedido: ");
         int idPedido = input.nextInt();
         if(pedidos.buscarPedido(idPedido) == null){
             Pedido pedido = new Pedido(cliente, garcon);
-            
 
             while(true){
                 System.out.println("Digite 0 para cancelar ou 1 para continuar: ");
@@ -47,13 +46,14 @@ public class ControleGarcon implements IControllerGarcon{
                         continue;
                     }
                     else if(((Simples)produto).getQuantEstoque() < quant){
-                        System.out.println("Quantidade insuficiente em estoque!");
+                        System.out.println("Quantidade insuficiente em estoque! Estamos falindo");
                         continue;
                     }
                     else{
                         this.darBaixaEstoqueGarcon(id, quant);
                     }
                     pedido.getProdutos().put(produto, quant);
+
 
                 }
                 
@@ -63,6 +63,9 @@ public class ControleGarcon implements IControllerGarcon{
 
                     pedido.getProdutos().put(produto, quant);
                 }
+                
+                pedidos.adicionarPedido(pedido);
+
             }
         }
         else{

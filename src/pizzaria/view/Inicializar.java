@@ -1,5 +1,6 @@
 package pizzaria.view;
 
+import java.util.Scanner;
 import pizzaria.controller.IControllerGeral;
 import pizzaria.model.*;
 
@@ -15,7 +16,7 @@ public class Inicializar {
         this.inicializarFuncionarios();
         this.inicializarClientes();
         this.inicializarFornecedores();
-        limparTela();
+        //limparTela();
     }
     
     private void inicializarProdutos(){
@@ -24,6 +25,7 @@ public class Inicializar {
     }
     
     private void inicializarSimples(){
+        System.out.println("Entrou em inicializarSimples");
         Simples simples;
         
         simples = new Simples("Coca-cola 1L",100, 3);
@@ -41,6 +43,7 @@ public class Inicializar {
     }
     
     private void inicializarCompostos(){
+        System.out.println("Entrou em inicializarCompostos");
         Ingrediente ingrediente;
         
         ingrediente = new Ingrediente(200, "Água", 0);
@@ -71,6 +74,7 @@ public class Inicializar {
     }
     
     private void inicializarFuncionarios(){
+        System.out.println("Entrou em inicializarFuncionarios");
         this.inicializarCaixas();
         this.inicializarCozinheiros();
         this.inicizalizarGarçons();
@@ -83,8 +87,9 @@ public class Inicializar {
         caixa = new Caixa("Luana Cavalcanti", 1200, 11);
         controllerGeral.adicionarOuAtualizarFuncionario(caixa, "caixa");
         
-        caixa = new Caixa("Luiz Ferreira", 1200, 11);
+        caixa = new Caixa("Luiz Ferreira", 1200, 12);
         controllerGeral.adicionarOuAtualizarFuncionario(caixa, "caixa");
+        
     }
     
     private void inicializarCozinheiros(){
@@ -93,7 +98,7 @@ public class Inicializar {
         cozinheiro = new Cozinheiro("Letícia Azevedo", 1350, 5);
         controllerGeral.adicionarOuAtualizarFuncionario(cozinheiro, "cozinheiro");
         
-        cozinheiro = new Cozinheiro("Gustavo Martins", 1300, 5);
+        cozinheiro = new Cozinheiro("Gustavo Martins", 1300, 6);
         controllerGeral.adicionarOuAtualizarFuncionario(cozinheiro, "cozinheiro");
     }
     
@@ -103,7 +108,7 @@ public class Inicializar {
         garcon = new Garcon("Carolina Santos", 15, 1250);
         controllerGeral.adicionarOuAtualizarFuncionario(garcon, "garcon");
         
-        garcon = new Garcon("Marcos Rocha", 15, 1250);
+        garcon = new Garcon("Marcos Rocha", 16, 1250);
         controllerGeral.adicionarOuAtualizarFuncionario(garcon, "garcon");
     }
     
@@ -113,7 +118,7 @@ public class Inicializar {
         gerente = new Gerente("Matilde Souza", 1, 1500);
         controllerGeral.adicionarOuAtualizarFuncionario(gerente, "gerente");
         
-        gerente = new Gerente("Douglas Dias", 1, 1500);
+        gerente = new Gerente("Douglas Dias", 2, 1500);
         controllerGeral.adicionarOuAtualizarFuncionario(gerente, "gerente");
     }
     
@@ -123,7 +128,7 @@ public class Inicializar {
         cliente = new Cliente("João Araujo", "12345678900");
         controllerGeral.adicionarOuAtualizarCliente(cliente);
         
-        cliente = new Cliente("Igor Cunha", "12345678900");
+        cliente = new Cliente("Igor Cunha", "12345678901");
         controllerGeral.adicionarOuAtualizarCliente(cliente);
     }
     
@@ -133,7 +138,7 @@ public class Inicializar {
         fornecedor = new Fornecedor("Massa Pronta Distribuidora","8764527123");
         controllerGeral.adicionarOuAtualizarFornecedor(fornecedor);
         
-        fornecedor = new Fornecedor("Distribuidora Viva Sabor","8764527123");
+        fornecedor = new Fornecedor("Distribuidora Viva Sabor","8764527124");
         controllerGeral.adicionarOuAtualizarFornecedor(fornecedor);
     }
     

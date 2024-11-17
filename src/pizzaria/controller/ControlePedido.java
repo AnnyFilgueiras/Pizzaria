@@ -32,6 +32,12 @@ public class ControlePedido implements IControllerPedido{
                 break;
             }
         }
+        System.out.println("Produto não encontrado no pedido!");
+    }
+    
+    @Override
+    public PedidoRep getPedidos(){
+        return this.pedidos;
     }
     
     @Override

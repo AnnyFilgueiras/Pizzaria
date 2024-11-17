@@ -58,7 +58,7 @@ public class PedidoRep {
     }
 
     public Pedido buscarPedido(int id){
-         for (Pedido p : pedidos) {
+         for (Pedido p : this.pedidos) {
             if (p.getId() == id) {
                 return p;
             }

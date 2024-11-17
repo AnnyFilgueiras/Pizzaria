@@ -8,6 +8,7 @@ import pizzaria.model.Funcionario;
 import pizzaria.model.Ingrediente;
 import pizzaria.model.Pagamento;
 import pizzaria.model.Pedido;
+import pizzaria.model.PedidoRep;
 import pizzaria.model.Produto;
 
 public class ControllerGeral implements IControllerGeral{
@@ -40,6 +41,11 @@ public class ControllerGeral implements IControllerGeral{
     @Override
     public void adicionarOuAtualizarCliente(Cliente cliente) {
         this.clienteCont.adicionarOuAtualizarCliente(cliente);
+    }
+
+    @Override
+    public PedidoRep getPedidos(){
+        return this.pedidoCont.getPedidos();
     }
 
     @Override
@@ -202,8 +208,8 @@ public class ControllerGeral implements IControllerGeral{
     }
 
     @Override
-    public void anotarOuAtualizarPedido(Funcionario garcon, Cliente cliente) {
-        this.garconCont.anotarOuAtualizarPedido(garcon, cliente);
+    public void anotarPedido(Funcionario garcon, Cliente cliente) {
+        this.garconCont.anotarPedido(garcon, cliente);
     }
 
     @Override

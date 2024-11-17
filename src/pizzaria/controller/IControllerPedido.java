@@ -2,6 +2,7 @@ package pizzaria.controller;
 
 import java.util.ArrayList;
 import pizzaria.model.Pedido;
+import pizzaria.model.PedidoRep;
 
 public interface IControllerPedido {
  
@@ -12,4 +13,6 @@ public interface IControllerPedido {
     public void cancelarPedido (int id);
 
     public ArrayList<Pedido> obterPedidos();
+
+    public PedidoRep getPedidos();
 }
