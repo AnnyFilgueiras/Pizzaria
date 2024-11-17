@@ -6,7 +6,7 @@ public class Produto {
     private String nome;
     protected float precoVenda;
 
-    Produto(int id, String nome){ //tirar do construtor e fazer o calculo do simples e composto
+    Produto(int id, String nome){ 
         this.id = id;
         this.nome = nome;
         this.precoVenda = 0;

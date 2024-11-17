@@ -7,7 +7,7 @@ public class Ingrediente {
     private float precoCompra;
     private  int quantEstoque;
 
-    Ingrediente(int id, String nome, float precoCompra){
+    public Ingrediente(int id, String nome, float precoCompra){
         this.id = id;
         this.precoCompra = precoCompra;
         this.quantEstoque = 0;
@@ -19,7 +19,7 @@ public class Ingrediente {
     }
 
 
-    public int getEstoque(int id){
+    public int getEstoque(){
         return this.quantEstoque;
     }
 
@@ -30,5 +30,9 @@ public class Ingrediente {
 
     public int getID(){
         return this.id;
+    }
+
+    public String getNome(){
+        return this.nome;
     }
 }

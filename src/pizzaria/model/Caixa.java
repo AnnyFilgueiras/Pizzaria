@@ -4,7 +4,7 @@ public class Caixa extends Funcionario{
     
     private int quantVendas;
 
-    public Caixa(String nome, float salario, int id, float salarioFinal, int quantHE){
+    public Caixa(String nome, float salario, int id){
         super(nome, id, salario);
         this.quantHE = 0;
         this.salarioFinal = salario;

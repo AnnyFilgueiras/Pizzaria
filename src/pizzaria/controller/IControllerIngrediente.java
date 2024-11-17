@@ -5,7 +5,7 @@ import pizzaria.model.Ingrediente;
 
 public interface IControllerIngrediente {
     
-    public void adicionarOuAtualizarIngrediente(Ingrediente ingrediente); //arrumar no UML
+    public void adicionarOuAtualizarIngrediente(Ingrediente ingrediente);
     
     public void removerIngrediente (int id);
     

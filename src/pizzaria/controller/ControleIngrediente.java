@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 public class ControleIngrediente implements IControllerIngrediente{
     
-    private IngredienteRep ingredientes = new IngredienteRep();
+    private IngredienteRep ingredientes = IngredienteRep.getInstance();
 
     @Override
     public void adicionarOuAtualizarIngrediente(Ingrediente ingrediente){
+        System.out.print("");
         ingredientes.adicionarIngrediente(ingrediente);
-    } //arrumar no UML
+    }
     
     @Override
     public void removerIngrediente (int id){

@@ -5,10 +5,12 @@ import pizzaria.model.Pagamento;
 import pizzaria.model.Funcionario;
 import pizzaria.model.Caixa;
 import pizzaria.model.CaixaRep;
+import pizzaria.model.PagamentoRep;
 
-public class ControleCaixa implements IControllerFuncionario{
+public class ControleCaixa implements IControllerCaixa{
 
     private CaixaRep caixas = CaixaRep.getInstance();
+    private PagamentoRep pagamentos = PagamentoRep.getInstance();
     Scanner ler = new Scanner (System.in);
 
     public boolean confirmaPagamento(Pagamento pagamento){
@@ -29,7 +31,8 @@ public class ControleCaixa implements IControllerFuncionario{
             System.out.println("Confirme seu ID: ");
             id = ler.nextInt();
             
-            if(obterFuncionario(id)!=null){
+            if(obterFuncionario(id, "")!=null){
+                pagamentos.adicionarPagamento(pagamento);
                 System.out.println("          Nota Fiscal        ");
                 System.out.println("    CPF: " + pagamento.getPedido().getCliente().getCpf());
                 System.out.println("    Produtos: " + pagamento.getPedido().getProdutos());
@@ -57,17 +60,17 @@ public class ControleCaixa implements IControllerFuncionario{
     } 
 
     @Override
-    public void adicionarOuAtualizarFuncionario(Funcionario funcionario){
+    public void adicionarOuAtualizarFuncionario(Funcionario funcionario, String tipo){
         this.caixas.adicionarCaixa(((Caixa)funcionario));
     }
 
     @Override
-    public void removerFuncionario(int id){
+    public void removerFuncionario(int id, String tipo){
         this.caixas.removerCaixa(id);
     }
 
     @Override
-    public Funcionario obterFuncionario(int id){
+    public Funcionario obterFuncionario(int id, String tipo){
         return this.caixas.buscarCaixa(id);
     }
 }

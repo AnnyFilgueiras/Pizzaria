@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Composto extends Produto{
     private ArrayList<Ingrediente> ingredientesUsados;
 
-    Composto(int id, String nome){
+    public Composto(int id, String nome){
         super(id, nome);
         this.ingredientesUsados = new ArrayList<Ingrediente>();
     }
@@ -29,7 +29,11 @@ public class Composto extends Produto{
         this.precoVenda = preco;
     }
 
-    public void adicionarIngredientes(Ingrediente ingrediente){ //VAI PRA CONTROLLER?????????????????
+    public ArrayList<Ingrediente> getIngredientes(){
+        return this.ingredientesUsados;
+    }
+
+    public void setIngredientesUsados(Ingrediente ingrediente) {
         this.ingredientesUsados.add(ingrediente);
     }
 }

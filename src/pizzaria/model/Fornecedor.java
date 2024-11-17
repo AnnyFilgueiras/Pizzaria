@@ -12,4 +12,8 @@ public class Fornecedor {
         return this.cnpj;
     
     }
+
+    public String getNome(){
+        return this.nome;
+    }
 }

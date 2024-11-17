@@ -4,7 +4,7 @@ public class Teste {
 
     public static void main(String[] args) {
         
-        Cliente cliente1 = new Cliente("Rute", "12345678900");
+        /*Cliente cliente1 = new Cliente("Rute", "12345678900");
         Funcionario garcon1 = new Garcon("Álvaro", 1, 1300);
 
         Ingrediente ingrediente1 = new Ingrediente(1, "ovo", 20);
@@ -24,7 +24,7 @@ public class Teste {
         ((Composto)produto3).adicionarIngredientes(ingrediente1);
         ((Composto)produto3).adicionarIngredientes(ingrediente2);
         ((Composto)produto3).setEcalcularPreco();
-        Pedido pedido1 = new Pedido(1, cliente1, garcon1);
+        /*Pedido pedido1 = new Pedido(1, cliente1, garcon1);
 
         pedido1.adicionarEmProdutos(produto1, 2); // 134,4
         pedido1.adicionarEmProdutos(produto2, 1); // 67.2

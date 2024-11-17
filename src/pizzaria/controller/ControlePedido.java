@@ -7,7 +7,7 @@ import pizzaria.model.PedidoRep;
 
 public class ControlePedido implements IControllerPedido{
     
-    private PedidoRep pedidos = new PedidoRep();
+    private PedidoRep pedidos = PedidoRep.getInstance();
     
 
     @Override

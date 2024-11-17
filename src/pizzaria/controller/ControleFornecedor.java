@@ -6,7 +6,7 @@ import pizzaria.model.Fornecedor;
 
 public class ControleFornecedor implements IControllerFornecedor{
 
-    private FornecedorRep fornecedores = new FornecedorRep();
+    private FornecedorRep fornecedores = FornecedorRep.getInstance();
 
     @Override
     public void adicionarOuAtualizarFornecedor(Fornecedor fornecedor) {

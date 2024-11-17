@@ -1,14 +1,14 @@
 package pizzaria.controller;
 
 
-import java.util.HashMap;
+
 import pizzaria.model.Produto;
 
 public interface IControllerProduto {
     
-    public void adicionarOuAtualizarProduto(Produto produto); //arrumar no UML
+    public void adicionarOuAtualizarProduto(Produto produto, String tipo); //arrumar no UML
     
-    public void removerProduto (int id);
+    public void removerProduto (int id, String tipo);
     
-    public Produto obterProduto (int id);
+    public Produto obterProduto (int id, String tipo);
 }

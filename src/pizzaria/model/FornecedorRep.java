@@ -54,6 +54,16 @@ public class FornecedorRep {
         }
     }
 
+    public Fornecedor buscarFornecedor(String cnpj){
+         for (Fornecedor f : fornecedores) {
+            if (f.getCnpj() == cnpj) {
+                return f;
+            }
+        }
+        System.out.println("Fornecedor não encontrad0");
+        return null;
+    }
+
     public ArrayList<Fornecedor> listarFornecedores(){
         return this.fornecedores;
     }

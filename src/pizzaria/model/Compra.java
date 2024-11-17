@@ -10,16 +10,13 @@ public class Compra {
     private HashMap<Produto, Integer> listaSimples;
     private HashMap<Ingrediente, Integer> listaIngredientes;
     private Fornecedor fornecedor;
-    private Funcionario gerente;
 
-
-    Compra(int id, String data, Fornecedor fornecedor, Funcionario gerente){
+    public Compra(int id, String data, Fornecedor fornecedor){
         this.id = id;
         this.data = data;
         this.listaSimples = new HashMap<>();
         this.listaIngredientes = new HashMap<>();
         this.fornecedor = fornecedor;
-        this.gerente = gerente;
     }
 
     public float calcularValorTotal(){
@@ -38,15 +35,24 @@ public class Compra {
 
     }
 
-    public void adicionarEmCompraIngrediente(Ingrediente ingrediente, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
-        this.listaIngredientes.put(ingrediente, quant);
-    }
-
-    public void adicionarEmCompraSimples(Produto simples, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
-        this.listaSimples.put(simples, quant);
-    }
-
-    public int getID(){
+    public int getId(){
         return this.id;
     }
+
+    public HashMap<Produto, Integer> getListaSimples(){
+        return this.listaSimples;
     }
+
+    public HashMap<Ingrediente, Integer> getListaIngredientes(){
+        return this.listaIngredientes;
+    }
+
+    public String getData(){
+        return this.data;
+    }
+
+    public Fornecedor getFornecedor(){
+        return this.fornecedor;
+    }
+
+}

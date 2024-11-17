@@ -32,10 +32,6 @@ public class Pedido{
         return this.produtos;
     }
     
-    public void adicionarEmProdutos (Produto p, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE
-        this.produtos.put(p, quant);
-    }
-
     public int getId(){
         return this.id;
     }
@@ -44,4 +40,7 @@ public class Pedido{
         return cliente;
     }
     
+    public Funcionario getGarcon(){
+        return this.garcon;
+    }
 }

@@ -17,7 +17,22 @@ public class IngredienteRep {
     } 
 
     public void adicionarIngrediente(Ingrediente ingrediente){
+        boolean rem = false;
+        
+        for (Ingrediente i : ingredientes){
+            if (i.getID() == ingrediente.getID()){
+                ingredientes.remove(i);
+                rem = true;
+                break;
+            } 
+        }
         this.ingredientes.add(ingrediente);
+        if (rem == true){
+            System.out.println("Ingrediente atualizado");
+        }
+        else{
+            System.out.println("Ingrediente adicionado");
+        }
     }
 
     public void removerIngrediente(int id){

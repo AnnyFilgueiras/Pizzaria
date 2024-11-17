@@ -21,7 +21,7 @@ public class CompraRep {
         boolean rem = false;
 
         for(Compra c : this.compras){
-            if(c.getID() == compra.getID()){
+            if(c.getId() == compra.getId()){
                 compras.remove(c);
                 rem = true;
                 break;
@@ -40,7 +40,7 @@ public class CompraRep {
         boolean rem = false;
 
         for (Compra c : this.compras){
-            if(c.getID() == id){
+            if(c.getId() == id){
                 compras.remove(c);
                 System.out.println("Compra removida!");
                 break;
@@ -49,6 +49,16 @@ public class CompraRep {
         if (rem == false){
             System.out.println("Compra não encontrada!");
         }
+    }
+
+    public Compra buscarCompra(int id){
+         for (Compra compra : compras) {
+            if (compra.getId() == id) {
+                return compra;
+            }
+        }
+        System.out.println("Compra não encontrada");
+        return null;
     }
 
     public ArrayList<Compra> listarCompras(){

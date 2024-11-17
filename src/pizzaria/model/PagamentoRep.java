@@ -35,7 +35,7 @@ public class PagamentoRep {
             System.out.println("Pagamento adicionado");
         }
     }
-    
+    /*
     public void removerPagamento (int id){
         boolean rem = false;
         for (Pagamento p : pagamentos){
@@ -50,7 +50,7 @@ public class PagamentoRep {
         if (rem == false){
             System.out.println("Pagamento não encontrado");
         }
-    }
+    }*/
     
     public  ArrayList<Pagamento> listarPagamentos(){
         return this.pagamentos;

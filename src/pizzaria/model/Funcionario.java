@@ -24,4 +24,8 @@ public abstract class Funcionario{
     public int getId() {
         return id;
     }
+
+    public String getNome(){
+        return this.nome;
+    }
 }

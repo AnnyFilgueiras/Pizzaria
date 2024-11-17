@@ -26,4 +26,16 @@ public class Pagamento{
     public Pedido getPedido() {
         return pedido;
     }
+
+    public Caixa getCaixa(){
+        return this.caixa;
+    }
+
+    public String getMetodo(){
+        return this.metodo;
+    }
+
+    public String getData(){
+        return this.data;
+    }
 }

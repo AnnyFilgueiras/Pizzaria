@@ -1,18 +1,12 @@
 package pizzaria.controller;
 
-import java.util.ArrayList;
-import pizzaria.model.Ingrediente;
-import pizzaria.model.Simples;
+import pizzaria.model.Compra;
 
 public interface IControllerCompra {
+
+    public Compra fazerCompra();
  
-    public void AdicionarOuAtualizarSimples (Simples simples, ArrayList<Simples> listaS, int quantS);
+    //public void AdicionarOuAtualizarSimples (Simples simples, int quant);
     
-    public void AdicionarOuAtualizarIngrediente (Ingrediente ingrediente, ArrayList<Ingrediente> listaI, int quantI);
-    
-    public void cancelarSimples (int id);
-    
-    public void cancelarIngrediente (int id);
-    
-    public void cancelarCompra (int id);
+    //public void AdicionarOuAtualizarIngrediente (Ingrediente ingrediente, int quant);
 }
