@@ -59,4 +59,8 @@ public class CozinheiroRep {
         }
         return null;
     }
+
+    public ArrayList<Cozinheiro> listarCozinheiros(){
+        return this.cozinheiros;
+    }
 }

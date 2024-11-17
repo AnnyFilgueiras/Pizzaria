@@ -61,4 +61,7 @@ public class GerenteRep {
         }
         return null;
     }
+    public ArrayList<Gerente> listarGerentes(){
+        return this.gerentes;
+    }
 }

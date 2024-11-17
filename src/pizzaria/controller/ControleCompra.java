@@ -1,15 +1,16 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import pizzaria.model.Compra;
 import pizzaria.model.CompraRep;
+import pizzaria.model.FornecedorRep;
 import pizzaria.model.Ingrediente;
 import pizzaria.model.IngredienteRep;
+import pizzaria.model.Produto;
 import pizzaria.model.Simples;
 import pizzaria.model.SimplesRep;
-import pizzaria.model.Compra;
-import pizzaria.model.FornecedorRep;
-import pizzaria.model.Produto;
 
 
 public class ControleCompra implements IControllerCompra{
@@ -28,19 +29,8 @@ public class ControleCompra implements IControllerCompra{
         
         Scanner ler = new Scanner(System.in);
         Compra compra;
-        int opc = 1, idCompra;
+        int opc = 1;
         
-        while(true){
-            System.out.println("Qual o ID da compra: ");
-            idCompra = ler.nextInt();
-            if(compras.listarCompras().contains(compras.buscarCompra(idCompra))){
-                System.out.println("Já existe uma compra com esse ID no sistema, tente novamente.");
-                continue;
-            }
-            else{      
-                break;
-            }
-        }
         
         System.out.println("Qual a data da compra: ");
         String data = ler.nextLine();
@@ -49,7 +39,7 @@ public class ControleCompra implements IControllerCompra{
             System.out.println("Qual o CNPJ do fornecedor: ");
             String cnpjFornecedor = ler.nextLine();
             if(fornecedores.listarFornecedores().contains(fornecedores.buscarFornecedor(cnpjFornecedor))){
-                compra = new Compra(idCompra, data, fornecedores.buscarFornecedor(cnpjFornecedor));
+                compra = new Compra(data, fornecedores.buscarFornecedor(cnpjFornecedor));
                 break;
             }
             else{
@@ -68,18 +58,22 @@ public class ControleCompra implements IControllerCompra{
 
             if (id>=100 && id<200){ //simples
                 Produto produtoSimples = simples.buscarSimples(id);
+                ((Simples)produtoSimples).setQuantEstoque(quant);
                 hsimples.put(((Simples)produtoSimples), quant);
+                
             }
 
             else{//ingredientes
                 Ingrediente ingrediente = ingredientes.buscarIngrediente(id);
+                ingrediente.setQuantEstoque(quant);
                 hingredientes.put(ingrediente, quant);
             }
+
 
             System.out.println("Digite 1 para continuar, 2 para cancelar ou 0 para finalizar a compra.");
             opc = ler.nextInt();
              
-        } while(opc != 0 || opc!=2);
+        } while(opc != 0 && opc!=2);
 
         if(opc == 2){
             compra = null;
@@ -87,11 +81,16 @@ public class ControleCompra implements IControllerCompra{
             ler.close();
             return compra;
         }
-
+        
         System.out.println("O valor total da compra é " +  compra.calcularValorTotal());
-     
-        ler.close();
+        
+        
+        this.compras.adicionarCompra(compra);
+
         return compra;
+    }
+    public ArrayList<Compra> listarCompras(){
+        return this.compras.listarCompras();
     }
     /* 
     public void adicionarEmCompraIngrediente(Ingrediente ingrediente, int quant){ // isso vai tá em controller ne TA AQUI PRO TESTE

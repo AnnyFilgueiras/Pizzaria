@@ -17,7 +17,8 @@ public class FuncionarioRep{
             funcionarioRep = new FuncionarioRep();
         return funcionarioRep;
     }
-        public void adicionarFuncionario(Funcionario funcionario){
+    
+    public void adicionarFuncionario(Funcionario funcionario){
         boolean rem = false;
 
         for (Funcionario f : funcionarios){

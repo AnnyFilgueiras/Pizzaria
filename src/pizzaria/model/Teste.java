@@ -4,6 +4,12 @@ public class Teste {
 
     public static void main(String[] args) {
         
+        Funcionario garcon = new Garcon("Nilson", 2, 1200);
+
+        Cliente cliente = new Cliente("Jonas", "123123123131");
+        Pedido pedido = new Pedido(cliente, garcon);
+
+        System.out.println(pedido);
         /*Cliente cliente1 = new Cliente("Rute", "12345678900");
         Funcionario garcon1 = new Garcon("Álvaro", 1, 1300);
 

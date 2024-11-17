@@ -20,4 +20,11 @@ public class Caixa extends Funcionario{
     public void setQuantVendas(int quantVendas){
         this.quantVendas = quantVendas;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Caixa: " + "\n" +"Nome: " + this.getNome() + "\n" + "ID: " + this.getId() + "\n" +"Salário: " + this.calcularSalario();
+
+        return valor;
+    }
 }

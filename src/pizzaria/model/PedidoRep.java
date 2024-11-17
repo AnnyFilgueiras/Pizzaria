@@ -32,9 +32,6 @@ public class PedidoRep {
         if (rem == true){
             System.out.println("Pedido atualizado");
         }
-        else{
-            System.out.println("Pedido adicionado");
-        }
     }
     
     public void removerPedido (int id){

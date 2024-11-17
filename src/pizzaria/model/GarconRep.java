@@ -56,8 +56,18 @@ public class GarconRep {
         for (Garcon c : garcons){
             if (c.getId() == id){
                 return c;
-            } 
+            }
+            else{
+                System.out.println("Garçon não encontrado!");
+                return null;
+            }
         }
         return null;
     }
-}
+
+    public ArrayList<Garcon> listarGarcons(){
+        return this.garcons;
+        }
+        
+    }
+

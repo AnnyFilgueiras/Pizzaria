@@ -15,4 +15,11 @@ public class Cliente {
     public String getNome(){
         return this.nome;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Nome: " + this.nome + "\n" + "CPF: " + this.cpf;
+
+        return valor;
+    }
 }    

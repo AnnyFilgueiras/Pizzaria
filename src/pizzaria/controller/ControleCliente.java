@@ -1,5 +1,6 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import pizzaria.model.Cliente;
 import pizzaria.model.ClienteRep;
 
@@ -9,7 +10,7 @@ public class ControleCliente implements IControllerCliente{
 
     @Override
     public void adicionarOuAtualizarCliente(Cliente cliente) {
-        this.clientes.adicionarCliente(cliente);     
+        this.clientes.adicionarCliente(cliente);
     }
 
     @Override
@@ -24,5 +25,10 @@ public class ControleCliente implements IControllerCliente{
 
     public ClienteRep getClientes(){
         return this.clientes;
+    }
+    
+    @Override
+    public ArrayList<Cliente> listarClientes(){
+        return this.clientes.listarClientes();
     }
 }

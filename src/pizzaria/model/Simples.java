@@ -23,8 +23,13 @@ public class Simples extends Produto{
     public float getPrecoCompra(){
         return this.precoCompra;
     }
-
-    public void setPrecoVenda(float preco){
-        this.precoVenda = preco;
+    @Override
+    public String toString(){
+        String valor = "Nome: " + this.getNome() + "\nID: " + this.getId() + "\nPreço de venda: " + this.precoVenda + "\nQuantidade em estoque: " + this.quantEstoque;
+        return valor;
     }
+/*
+    public void getPrecoVenda(float preco){
+        this.precoVenda = preco;
+    }*/
 }

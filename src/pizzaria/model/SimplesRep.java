@@ -17,7 +17,7 @@ public class SimplesRep {
         }
         return simplesRep;
     }
-    public void adicionarOuAtualizarSimples(Simples pSimples){
+    public void adicionarOuAtualizarSimples(Produto pSimples){
         boolean rem = false;
         for (Produto s : simples){
             if (s.getId() == pSimples.getId()){

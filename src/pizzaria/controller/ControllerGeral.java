@@ -1,15 +1,20 @@
 package pizzaria.controller;
 
 import java.util.ArrayList;
+import pizzaria.model.Caixa;
 import pizzaria.model.Cliente;
 import pizzaria.model.Compra;
+import pizzaria.model.Cozinheiro;
 import pizzaria.model.Fornecedor;
 import pizzaria.model.Funcionario;
+import pizzaria.model.Garcon;
+import pizzaria.model.Gerente;
 import pizzaria.model.Ingrediente;
 import pizzaria.model.Pagamento;
 import pizzaria.model.Pedido;
 import pizzaria.model.PedidoRep;
 import pizzaria.model.Produto;
+
 
 public class ControllerGeral implements IControllerGeral{
     private IControllerCliente clienteCont;
@@ -111,17 +116,22 @@ public class ControllerGeral implements IControllerGeral{
 
     @Override
     public void adicionarOuAtualizarProduto(Produto produto, String tipo){
-        if (tipo == "Simples" || tipo == "simples"){
+        if ("Simples".equals(tipo) || "simples".equals(tipo)){
             this.simplesCont.adicionarOuAtualizarProduto(produto, tipo);
         }
         else{
             this.compostoCont.adicionarOuAtualizarProduto(produto, tipo);
         }
     }
- 
+    
+    @Override
+    public Pedido obterPedido(int idPedido){
+        return this.pedidoCont.obterPedido(idPedido);
+    }
+
     @Override
     public void removerProduto(int id, String tipo) {
-        if (tipo == "Simples" || tipo == "simples"){
+        if ("Simples".equals(tipo) || "simples".equals(tipo)){
             this.simplesCont.removerProduto(id, tipo);
         }
         else{
@@ -131,7 +141,7 @@ public class ControllerGeral implements IControllerGeral{
 
     @Override
     public Produto obterProduto(int id, String tipo) {
-        if (tipo == "Simples" || tipo == "simples"){
+        if ("Simples".equals(tipo) || "simples".equals(tipo)){
             return this.simplesCont.obterProduto(id, tipo);
         }
         else{
@@ -155,51 +165,37 @@ public class ControllerGeral implements IControllerGeral{
     }
     @Override
     public void adicionarOuAtualizarFuncionario(Funcionario funcionario, String tipo) {
-            if (tipo == "Gerente" || tipo == "gerente"){
-                this.gerenteCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
-            }
-            else if(tipo == "Caixa" || tipo == "caixa"){
-                this.caixaCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
-            }
-            else if(tipo == "Cozinheiro" || tipo == "cozinheiro"){
-                this.cozinheiroCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
-            }
-            else if(tipo == "Garcon" || tipo == "garcon"){
-                this.garconCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
-            }
+            if (null != tipo)switch (tipo) {
+            case "Gerente", "gerente" -> this.gerenteCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
+            case "Caixa", "caixa" -> this.caixaCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
+            case "Cozinheiro", "cozinheiro" -> this.cozinheiroCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
+            case "Garcon", "garcon" -> this.garconCont.adicionarOuAtualizarFuncionario(funcionario, tipo);
+            default -> {
+                }
+        }
             
     }
 
     @Override
     public void removerFuncionario(int id, String tipo) {
-            if (tipo == "Gerente" || tipo == "gerente"){
-                this.gerenteCont.removerFuncionario(id, tipo);
+        switch (tipo) {
+            case "Gerente", "gerente" -> this.gerenteCont.removerFuncionario(id, tipo);
+            case "Caixa", "caixa" -> this.caixaCont.removerFuncionario(id, tipo);
+            case "Cozinheiro", "cozinheiro" -> this.cozinheiroCont.removerFuncionario(id, tipo);
+            case "Garcon", "garcon" -> this.garconCont.removerFuncionario(id, tipo);
+            default -> {
             }
-            else if(tipo == "Caixa" || tipo == "caixa"){
-                this.caixaCont.removerFuncionario(id, tipo);
-            }
-            else if(tipo == "Cozinheiro" || tipo == "cozinheiro"){
-                this.cozinheiroCont.removerFuncionario(id, tipo);
-            }
-            else if(tipo == "Garcon" || tipo == "garcon"){
-                this.garconCont.removerFuncionario(id, tipo);
-            }
+        }
     }
 
     @Override
     public Funcionario obterFuncionario(int id, String tipo) {
-        if (tipo == "Gerente" || tipo == "gerente"){
-            return this.gerenteCont.obterFuncionario(id, tipo);
-        }
-        else if(tipo == "Caixa" || tipo == "caixa"){
-            return this.caixaCont.obterFuncionario(id, tipo);
-        }
-        else if(tipo == "Cozinheiro" || tipo == "cozinheiro"){
-            return this.cozinheiroCont.obterFuncionario(id, tipo);
-        }
-        else {
-            return this.garconCont.obterFuncionario(id, tipo);
-        }
+        return switch (tipo) {
+            case "Gerente", "gerente" -> this.gerenteCont.obterFuncionario(id, tipo);
+            case "Caixa", "caixa" -> this.caixaCont.obterFuncionario(id, tipo);
+            case "Cozinheiro", "cozinheiro" -> this.cozinheiroCont.obterFuncionario(id, tipo);
+            default -> this.garconCont.obterFuncionario(id, tipo);
+        };
     }
 
     @Override
@@ -231,4 +227,44 @@ public class ControllerGeral implements IControllerGeral{
     public void removerProduto(int id, Pedido pedido, int quant) {
         this.pedidoCont.removerProduto(id, pedido, quant);
     }  
+
+    @Override
+    public ArrayList<Compra> listarCompras(){
+        return this.compraCont.listarCompras();
+    }
+
+    @Override
+    public ArrayList<Cliente> listarClientes(){
+        return this.clienteCont.listarClientes();
+    }
+
+    @Override
+    public ArrayList<Caixa> listarCaixas(){
+        return this.caixaCont.listarCaixas();
+    }
+
+    @Override
+    public ArrayList<Garcon> listarGarcons(){
+        return this.garconCont.listarGarcons();
+    }
+
+    @Override
+    public ArrayList<Gerente> listarGerentes(){
+        return this.gerenteCont.listarGerentes();
+    }
+
+    @Override
+    public ArrayList<Cozinheiro> listarCozinheiros(){
+        return this.cozinheiroCont.listarCozinheiros();
+    }
+
+    @Override
+    public ArrayList<Produto> listarSimples(){
+        return this.simplesCont.listarSimples();
+    }
+
+    @Override
+    public ArrayList<Produto> listarComposto(){
+        return this.compostoCont.listarComposto();
+    }
 }

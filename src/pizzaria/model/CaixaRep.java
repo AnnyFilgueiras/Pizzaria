@@ -59,4 +59,9 @@ public class CaixaRep {
             } 
         }
         return null;
-    }}
+    }
+    
+    public ArrayList<Caixa> listarCaixas(){
+        return this.caixas;
+    }
+}

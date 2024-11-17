@@ -28,4 +28,15 @@ public abstract class Funcionario{
     public String getNome(){
         return this.nome;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Nome: " + "\n" + "ID: " + this.id + "\n" +"Salário: " + this.salario;
+
+        return valor;
+    }
+
+    public float getSalario(){
+        return this.salario;
+    }
 }

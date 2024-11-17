@@ -9,6 +9,7 @@ public class Ingrediente {
 
     public Ingrediente(int id, String nome, float precoCompra){
         this.id = id;
+        this.nome = nome;
         this.precoCompra = precoCompra;
         this.quantEstoque = 0;
     }
@@ -34,5 +35,11 @@ public class Ingrediente {
 
     public String getNome(){
         return this.nome;
+    }
+
+    @Override
+    public String toString(){
+        String valor = "Nome: " + this.getNome() + "\nID: " + this.getID() + "\nPreço de compra: " + this.precoCompra + "\nQuantidade em estoque: " + this.quantEstoque;
+        return valor;
     }
 }

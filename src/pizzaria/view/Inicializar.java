@@ -1,6 +1,5 @@
 package pizzaria.view;
 
-import java.util.Scanner;
 import pizzaria.controller.IControllerGeral;
 import pizzaria.model.*;
 
@@ -16,7 +15,7 @@ public class Inicializar {
         this.inicializarFuncionarios();
         this.inicializarClientes();
         this.inicializarFornecedores();
-        //limparTela();
+        limparTela();
     }
     
     private void inicializarProdutos(){
@@ -25,56 +24,66 @@ public class Inicializar {
     }
     
     private void inicializarSimples(){
-        System.out.println("Entrou em inicializarSimples");
+        
         Simples simples;
         
-        simples = new Simples("Coca-cola 1L",100, 3);
+        simples = new Simples("Coca-cola 1L",100, (float) 4.5);
+        simples.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarProduto(simples, "simples");
         
-        simples = new Simples("Guaraná 1L",101, 3);
+        simples = new Simples("Guaraná 1L",101, (float) 4.5);
+        simples.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarProduto(simples, "simples");
         
         simples = new Simples("Coca-cola Lata",102, (float) 1.5);
+        simples.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarProduto(simples, "simples");
         
         simples = new Simples("Guaraná Lata",103, (float) 1.5);
+        simples.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarProduto(simples, "simples");
 
     }
     
     private void inicializarCompostos(){
-        System.out.println("Entrou em inicializarCompostos");
+        //System.out.println("Entrou em inicializarCompostos");
         Ingrediente ingrediente;
         
-        ingrediente = new Ingrediente(200, "Água", 0);
+        ingrediente = new Ingrediente(200, "Água", 1);
+        ingrediente.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
         
         ingrediente = new Ingrediente(201, "Laranja", (float) 2.5);
+        ingrediente.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
         
         ingrediente = new Ingrediente(202, "Massa da pizza", 8);
+        ingrediente.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
         
         ingrediente = new Ingrediente(203, "Molho de tomate", 4);
+        ingrediente.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
-        
+
         ingrediente = new Ingrediente(204, "Mussarela", 5);
+        ingrediente.setQuantEstoque(50);
         controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
         
         ingrediente = new Ingrediente(205, "Orégano", (float) 0.5);
-        controllerGeral.adicionarOuAtualizarIngrediente(ingrediente);
+        ingrediente.setQuantEstoque(50);
+        controllerGeral.adicionarOuAtualizarIngrediente(ingrediente); 
         
         Composto composto;
         
         composto = new Composto(1, "Suco de Laranja");
-        controllerGeral.adicionarOuAtualizarProduto(composto, "composto");
+
+        controllerGeral.adicionarOuAtualizarProduto(composto, "composto"); // tem q ver isso dps, da pra fazer composto sem ingrediente
 
         composto = new Composto(2, "Pizza de Mussarela");
         controllerGeral.adicionarOuAtualizarProduto(composto, "composto");
     }
     
     private void inicializarFuncionarios(){
-        System.out.println("Entrou em inicializarFuncionarios");
         this.inicializarCaixas();
         this.inicializarCozinheiros();
         this.inicizalizarGarçons();
@@ -141,26 +150,23 @@ public class Inicializar {
         fornecedor = new Fornecedor("Distribuidora Viva Sabor","8764527124");
         controllerGeral.adicionarOuAtualizarFornecedor(fornecedor);
     }
-    
-    public static void limparTela() {
-        String sistema = System.getProperty("os.name").toLowerCase();
-        try {
-            // Verifica se o sistema é Windows
-            if (sistema.contains("win")) {
-                // Para Windows
-                ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
-                pb.inheritIO().start().waitFor();
-            } 
-            // Verifica se o sistema é Unix-like (Linux, Mac)
-            else if (sistema.contains("nix") || sistema.contains("nux") || sistema.contains("mac")) {
-                // Para Linux/Mac
-                ProcessBuilder pb = new ProcessBuilder("clear");
-                pb.inheritIO().start().waitFor();
-            } else {
-                System.out.println("Sistema não suportado para limpar a tela.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void limparTela() {
+    try {
+        // Identifica o sistema operacional
+        String os = System.getProperty("os.name").toLowerCase();
+
+        if (os.contains("windows")) {
+            // Comando para limpar o terminal no Windows
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            // Comando para limpar o terminal em sistemas baseados em Unix (Linux, MacOS)
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
+     } catch (Exception e) {
+        // Em caso de falha, imprime algumas linhas em branco como alternativa
+        System.out.println("Não foi possível limpar a tela.");
+        for (int i = 0; i < 50; i++) System.out.println();
+    }
     }
 }

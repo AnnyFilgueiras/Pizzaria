@@ -1,7 +1,7 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-
 import pizzaria.model.Composto;
 import pizzaria.model.CompostoRep;
 import pizzaria.model.IngredienteRep;
@@ -36,6 +36,7 @@ public class ControleComposto implements IControllerComposto{
             }
             
         }
+        composto.setEcalcularPreco();
         this.compostos.adicionarComposto(composto);
     }
 
@@ -48,5 +49,10 @@ public class ControleComposto implements IControllerComposto{
     public Produto obterProduto(int id, String tipo) {
         return this.compostos.buscarComposto(id);
     }
+
+	@Override
+	public ArrayList<Produto> listarComposto() {
+		return this.compostos.listarComposto();
+	}
     
 }

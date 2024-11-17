@@ -6,10 +6,9 @@ public class Produto {
     private String nome;
     protected float precoVenda;
 
-    Produto(int id, String nome){ 
+    public Produto(int id, String nome){ 
         this.id = id;
         this.nome = nome;
-        this.precoVenda = 0;
     }
 
     public float getPrecoVenda(){
@@ -23,4 +22,12 @@ public class Produto {
     public String getNome(){
         return this.nome;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Nome: " + this.nome + "\nID: " + this.id + "\nPreço de venda: " + this.precoVenda;
+
+        return valor;
+    }
+
 }

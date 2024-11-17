@@ -1,15 +1,15 @@
 package pizzaria.controller;
 
-import pizzaria.model.Funcionario;
-import pizzaria.model.Cozinheiro;
-import pizzaria.model.CozinheiroRep;
-import pizzaria.model.Ingrediente;
-import pizzaria.model.IngredienteRep;
-import pizzaria.model.Composto;
-import pizzaria.model.CompostoRep;
-import pizzaria.model.Produto;
 import java.util.ArrayList;
 import java.util.Scanner;
+import pizzaria.model.Composto;
+import pizzaria.model.CompostoRep;
+import pizzaria.model.Cozinheiro;
+import pizzaria.model.CozinheiroRep;
+import pizzaria.model.Funcionario;
+import pizzaria.model.Ingrediente;
+import pizzaria.model.IngredienteRep;
+import pizzaria.model.Produto;
 
 public class ControleCozinheiro implements IControllerCozinheiro{
 
@@ -32,7 +32,7 @@ public class ControleCozinheiro implements IControllerCozinheiro{
     public Funcionario obterFuncionario(int id, String tipo){
         return this.cozinheiros.buscarCozinheiro(id);
     }
-
+    @Override
     public String darBaixaEstoqueCozinheiro(int idProduto, int quant){
         
         Produto produto = compostos.buscarComposto(idProduto);
@@ -70,6 +70,11 @@ public class ControleCozinheiro implements IControllerCozinheiro{
             }        
         }
         
-        
+    
+    }
+
+    @Override
+    public ArrayList<Cozinheiro> listarCozinheiros() {
+        return this.cozinheiros.listarCozinheiros();
     }
 }

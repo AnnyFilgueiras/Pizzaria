@@ -36,12 +36,19 @@ public class IngredienteRep {
     }
 
     public void removerIngrediente(int id){
+        boolean rem = false;
+
         for (Ingrediente i : ingredientes){
             if (i.getID() == id){
                 ingredientes.remove(i);
-                break;
+                rem = true;
+                System.out.println("Ingrediente removido!");
+                return;
             } 
         }
+        
+        if(rem == false)
+            System.out.println("Ingrediente não encontrado!");
     }
 
     public ArrayList<Ingrediente> listarIngredientes(){

@@ -16,4 +16,11 @@ public class Fornecedor {
     public String getNome(){
         return this.nome;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Fornecedor(a): " + this.nome + "\n" + "CNPJ: " + this.cnpj;
+
+        return valor;
+    }
 }

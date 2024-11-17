@@ -15,4 +15,6 @@ public interface IControllerPedido {
     public ArrayList<Pedido> obterPedidos();
 
     public PedidoRep getPedidos();
+
+    public Pedido obterPedido(int id);
 }

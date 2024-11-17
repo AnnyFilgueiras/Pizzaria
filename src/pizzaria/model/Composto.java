@@ -36,4 +36,10 @@ public class Composto extends Produto{
     public void setIngredientesUsados(Ingrediente ingrediente) {
         this.ingredientesUsados.add(ingrediente);
     }
+
+    @Override
+    public String toString(){
+        String valor = "Nome: " + this.getNome() + "\nID: " + this.getId() + "\nPreço de venda: " + this.precoVenda;
+        return valor;
+    }
 }

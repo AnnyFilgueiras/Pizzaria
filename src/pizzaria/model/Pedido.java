@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Pedido{
     
+    private boolean pagou = false;
     private int id;
     private static int contador = 0;
     private float valorTotal;
@@ -27,10 +28,20 @@ public class Pedido{
             this.valorTotal += p.getPrecoVenda() * quant;
         }
         return this.valorTotal;
-        }
+    }
 
     public HashMap<Produto, Integer> getProdutos() {
         return this.produtos;
+    }
+
+    public HashMap<String, Integer> mostrarHashMap(){
+        HashMap<String, Integer> novoH = new HashMap<String, Integer>();
+
+        for(Produto p : this.getProdutos().keySet()){
+            novoH.put(p.getNome(), this.getProdutos().get(p));
+        }
+
+        return novoH;
     }
     
     public int getId(){
@@ -48,16 +59,22 @@ public class Pedido{
     @Override
     public String toString(){
 
-        ArrayList<Integer> ids = new ArrayList<>();
+        ArrayList<String> nomes = new ArrayList<>();
 
         for (Produto p : this.produtos.keySet()){
-            int id = p.getId();
-            ids.add(id);
+            String nome = p.getNome();
+            nomes.add(nome);
         }
-        String valor = "Pedido: " + this.id + "\n" +  "Cliente: " + this.cliente.getNome() + "\n" + this.garcon.getNome() + "\n" + "Valor: " + this.calcularValorTotal();
+        String valor = "Pedido: " + this.id + "\n" +  "Cliente: " + this.cliente.getNome() + "\n" + "Garcon: " + this.garcon.getNome() + "\n" + "Valor: " + this.calcularValorTotal() + "\n" + "Produtos: " + this.mostrarHashMap();
         
         return valor;
     }
 
-    
+    public boolean getPagou(){
+        return this.pagou;
+    }
+
+    public void setPagou(){
+        this.pagou = true;
+    }
 }

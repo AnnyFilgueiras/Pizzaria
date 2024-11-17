@@ -21,7 +21,7 @@ public class FornecedorRep {
         boolean rem = false;
 
         for (Fornecedor f : fornecedores){
-            if (f.getCnpj() == fornecedor.getCnpj()){
+            if (f.getCnpj().equals(fornecedor.getCnpj())){
                 fornecedores.remove(f);
                 rem = true;
                 break;
@@ -42,7 +42,7 @@ public class FornecedorRep {
         boolean rem = false;
 
         for (Fornecedor f : fornecedores){
-            if(f.getCnpj() == cnpj){
+            if(f.getCnpj().equals(cnpj)){
                 fornecedores.remove(f);
                 rem = true;
                 System.out.println("Fornecedor removido");
@@ -56,11 +56,11 @@ public class FornecedorRep {
 
     public Fornecedor buscarFornecedor(String cnpj){
          for (Fornecedor f : fornecedores) {
-            if (f.getCnpj() == cnpj) {
+            if (f.getCnpj().equals(cnpj)) {
                 return f;
             }
         }
-        System.out.println("Fornecedor não encontrad0");
+        //System.out.println("Fornecedor não encontrad0");
         return null;
     }
 

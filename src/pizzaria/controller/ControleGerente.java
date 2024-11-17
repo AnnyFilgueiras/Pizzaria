@@ -1,17 +1,18 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import pizzaria.model.Compra;
+import pizzaria.model.CompraRep;
 import pizzaria.model.Funcionario;
 import pizzaria.model.Gerente;
 import pizzaria.model.GerenteRep;
+import pizzaria.model.Ingrediente;
 import pizzaria.model.IngredienteRep;
 import pizzaria.model.Produto;
-import pizzaria.model.SimplesRep;
-import pizzaria.model.CompraRep;
-import pizzaria.model.Ingrediente;
 import pizzaria.model.Simples;
+import pizzaria.model.SimplesRep;
 
 public class ControleGerente implements IControllerGerente{
 
@@ -80,5 +81,9 @@ public class ControleGerente implements IControllerGerente{
                 }  
             }
         }
+    }
+
+    public ArrayList<Gerente> listarGerentes(){
+        return this.gerentes.listarGerentes();
     }
 }

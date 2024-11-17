@@ -25,4 +25,11 @@ public class Garcon extends Funcionario{
     public ArrayList<Pedido> getListaPedidos(){
         return this.listaPedidos;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Garçon: " + "\n" +"Nome: " + this.getNome() + "\n" + "ID: " + this.getId() + "\n" +"Salário: " + this.calcularSalario();
+
+        return valor;
+    }
 }

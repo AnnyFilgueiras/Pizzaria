@@ -1,7 +1,7 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import pizzaria.model.Produto;
-import pizzaria.model.Simples;
 import pizzaria.model.SimplesRep;
 
 public class ControleSimples implements IControllerSimples {
@@ -10,7 +10,7 @@ public class ControleSimples implements IControllerSimples {
 
     @Override
     public void adicionarOuAtualizarProduto(Produto produto, String tipo){
-        this.simples.adicionarOuAtualizarSimples(((Simples)produto));
+        this.simples.adicionarOuAtualizarSimples(produto);
     }
 
     @Override
@@ -21,5 +21,10 @@ public class ControleSimples implements IControllerSimples {
     @Override
     public Produto obterProduto(int id, String tipo){
         return this.simples.buscarSimples(id);
+    }
+
+    @Override
+    public ArrayList<Produto> listarSimples(){
+        return this.simples.listarSimples();
     }
 }

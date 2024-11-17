@@ -1,11 +1,13 @@
 package pizzaria.controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import pizzaria.model.Pagamento;
-import pizzaria.model.Funcionario;
 import pizzaria.model.Caixa;
 import pizzaria.model.CaixaRep;
+import pizzaria.model.Funcionario;
+import pizzaria.model.Pagamento;
 import pizzaria.model.PagamentoRep;
+import pizzaria.model.Pedido;
 
 public class ControleCaixa implements IControllerCaixa{
 
@@ -13,17 +15,22 @@ public class ControleCaixa implements IControllerCaixa{
     private PagamentoRep pagamentos = PagamentoRep.getInstance();
     Scanner ler = new Scanner (System.in);
 
+    @Override
     public boolean confirmaPagamento(Pagamento pagamento){
+        
+        Pedido pedido = pagamento.getPedido();
         
         boolean conf = false;
         
         if (receberPagamento(pagamento.getValor()) == true){
             conf = true;
+            pedido.setPagou();
         }
         
         return conf;
     }
 
+    @Override
     public void emitirNF(Pagamento pagamento){
         int id;
         
@@ -35,7 +42,8 @@ public class ControleCaixa implements IControllerCaixa{
                 pagamentos.adicionarPagamento(pagamento);
                 System.out.println("          Nota Fiscal        ");
                 System.out.println("    CPF: " + pagamento.getPedido().getCliente().getCpf());
-                System.out.println("    Produtos: " + pagamento.getPedido().getProdutos());
+                 System.out.println("    Data: " + pagamento.getData());
+                System.out.println("    Produtos: " + pagamento.getPedido().mostrarHashMap());
                 System.out.println("    Valor total: " + pagamento.getValor());
             }
             else{
@@ -44,6 +52,7 @@ public class ControleCaixa implements IControllerCaixa{
         }
     }
 
+    @Override
     public boolean receberPagamento(float valor){
         
         boolean rec = false;
@@ -55,7 +64,8 @@ public class ControleCaixa implements IControllerCaixa{
         if(r=='S' || r=='s'){
             rec = true;
         }
-        
+        else if(r =='N' || r == 'n')
+            System.out.println("Cliente não pagou! Pagamento cancelado.");
         return rec;
     } 
 
@@ -72,5 +82,10 @@ public class ControleCaixa implements IControllerCaixa{
     @Override
     public Funcionario obterFuncionario(int id, String tipo){
         return this.caixas.buscarCaixa(id);
+    }
+
+    @Override
+    public ArrayList<Caixa> listarCaixas(){
+        return this.caixas.listarCaixas();
     }
 }

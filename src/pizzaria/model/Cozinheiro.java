@@ -15,4 +15,11 @@ public class Cozinheiro extends Funcionario{
         this.salarioFinal += (this.salarioFinal/160*this.quantHE);
         return this.salarioFinal;
     }
+
+    @Override
+    public String toString(){
+        String valor = "Cozinheiro: " + "\n" +"Nome: "+ this.getNome() + "\n" + "ID: " + this.getId() + "\n" +"Salário: " + this.calcularSalario();
+
+        return valor;
+    }
 }
